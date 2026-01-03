@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Premium Auto Dealership | Your Dream Car Awaits',
-    description: 'Discover unbeatable deals on new and certified pre-owned vehicles. Special financing available. Visit us today!',
+    title: 'Earn $1,000s in Extra Monthly Income - Without Sacrificing Your Free Time',
+    description: 'Start earning fast. It\'s as easy as texting. Get paid quickly—and often.',
     images: [
       {
         url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png',
