@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Premium Auto Dealership',
     images: [
       {
-        url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png&w=1200&h=630',
+        url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png',
         width: 1200,
         height: 630,
         alt: 'Luxury vehicles at Premium Auto Dealership showroom',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: 'Discover unbeatable deals on new and certified pre-owned vehicles. Special financing available. Visit us today!',
     images: [
       {
-        url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png&w=1200&h=630',
+        url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png',
         alt: 'Luxury vehicles at Premium Auto Dealership showroom',
       },
     ],
