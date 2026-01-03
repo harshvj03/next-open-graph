@@ -6,12 +6,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://your-dealership-domain.com'),
-  title: 'Premium Auto Dealership | Your Dream Car Awaits',
-  description: 'Discover unbeatable deals on new and certified pre-owned vehicles. Special financing available. Visit us today and drive home in your dream car!',
+  title: 'Earn $1,000s in Extra Monthly Income - Without Sacrificing Your Free Time',
+  description: 'Start earning fast. It\'s as easy as texting. Get paid quickly—and often.',
   keywords: ['car dealership', 'new cars', 'used cars', 'auto sales', 'car financing', 'vehicle deals'],
   openGraph: {
-    title: 'Premium Auto Dealership | Your Dream Car Awaits',
-    description: 'Discover unbeatable deals on new and certified pre-owned vehicles. Special financing available. Visit us today and drive home in your dream car!',
+    title: 'Earn $1,000s in Extra Monthly Income - Without Sacrificing Your Free Time',
+    description: 'Start earning fast. It\'s as easy as texting. Get paid quickly—and often.',
     type: 'website',
     locale: 'en_US',
     url: 'https://your-dealership-domain.com',
