@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://your-dealership-domain.com',
-    siteName: 'Premium Auto Dealership',
+    siteName: 'Blabber',
     images: [
       {
         url: 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png',
