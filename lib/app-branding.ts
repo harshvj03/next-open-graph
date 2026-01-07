@@ -28,10 +28,13 @@ interface BrandingData {
   height: number;
 }
 
-const API_BASE_URL = 'https://business-api.uat.itsblabber.com/v1/app-branding';
-const SHAREURL_BASE = 'https://shareurl.ai';
-const FALLBACK_IMAGE_URL = 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png';
-const DEFAULT_DIMENSIONS = { width: 1200, height: 630 };
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://business-api.uat.itsblabber.com/v1/app-branding';
+const SHAREURL_BASE = process.env.NEXT_PUBLIC_SHAREURL_BASE || 'https://shareurl.ai';
+const FALLBACK_IMAGE_URL = process.env.NEXT_PUBLIC_FALLBACK_IMAGE_URL || 'https://shareurl.ai/app-branding/2025-12-16T04-21-39-711Z-App%20-%20Logo%20-%20Top%20Nav.png';
+const DEFAULT_DIMENSIONS = {
+  width: parseInt(process.env.NEXT_PUBLIC_DEFAULT_IMAGE_WIDTH || '1200', 10),
+  height: parseInt(process.env.NEXT_PUBLIC_DEFAULT_IMAGE_HEIGHT || '630', 10),
+};
 
 /**
  * Extracts brand identifier from URL path or headers
