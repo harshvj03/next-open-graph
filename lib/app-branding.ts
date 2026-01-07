@@ -42,21 +42,62 @@ const DEFAULT_DIMENSIONS = {
  * Defaults to "StarA" if not found
  */
 export function extractBrandId(headers: Headers): string {
-  // Try to get from referer header or host header
-  const referer = headers.get('referer') || '';
-  const host = headers.get('host') || '';
+  let pathname = '';
+  let fullUrl = '';
   
-  // Check if brand is in URL path (e.g., /StarA/page)
-  const urlMatch = referer.match(/\/([A-Za-z0-9]+)(?:\/|$|\?)/);
-  if (urlMatch && urlMatch[1] !== 'api' && urlMatch[1] !== 'app') {
-    return urlMatch[1];
+  // Try to get pathname from x-pathname header (Vercel/Next.js)
+  pathname = headers.get('x-pathname') || '';
+  
+  // If not available, try to construct from referer or x-url header
+  if (!pathname) {
+    const referer = headers.get('referer') || '';
+    const xUrl = headers.get('x-url') || '';
+    const host = headers.get('host') || '';
+    
+    if (xUrl) {
+      fullUrl = xUrl;
+    } else if (referer) {
+      fullUrl = referer;
+    } else if (host) {
+      // Try to get from x-forwarded-proto and host
+      const proto = headers.get('x-forwarded-proto') || 'https';
+      fullUrl = `${proto}://${host}`;
+    }
+    
+    if (fullUrl) {
+      try {
+        const url = new URL(fullUrl);
+        pathname = url.pathname;
+      } catch (error) {
+        console.warn('Failed to parse URL:', error);
+      }
+    }
   }
   
-  // Check query parameter
-  const url = new URL(referer || `https://${host}`);
-  const brandParam = url.searchParams.get('brand');
-  if (brandParam) {
-    return brandParam;
+  // Extract first path segment (e.g., /Newte -> Newte)
+  if (pathname) {
+    // Remove leading slash and get first segment
+    const segments = pathname.split('/').filter(segment => segment.length > 0);
+    if (segments.length > 0) {
+      const firstSegment = segments[0];
+      // Exclude common paths that aren't brand identifiers
+      if (firstSegment && !['api', 'app', '_next', 'favicon.ico'].includes(firstSegment.toLowerCase())) {
+        return firstSegment;
+      }
+    }
+  }
+  
+  // Check query parameter as fallback
+  if (fullUrl) {
+    try {
+      const url = new URL(fullUrl);
+      const brandParam = url.searchParams.get('brand');
+      if (brandParam) {
+        return brandParam;
+      }
+    } catch (error) {
+      // Ignore URL parsing errors
+    }
   }
   
   // Default fallback
